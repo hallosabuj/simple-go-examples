@@ -1,8 +1,9 @@
 package main
 
 import (
-	calculator "api"
+	calculator "api/calculator"
 	"fmt"
+	homepage "homepage"
 	"log"
 	"net/http"
 
@@ -11,9 +12,6 @@ import (
 
 var router = mux.NewRouter()
 
-func index() {
-	fmt.Println("Inside index function...")
-}
 func uri_init() {
 	router.HandleFunc("/calculator/addition", func(w http.ResponseWriter, r *http.Request) {
 		calculator.Addition(w, r)
@@ -28,8 +26,8 @@ func uri_init() {
 		calculator.Multiplication(w, r)
 	}).Methods("POST")
 	router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		index()
-	}).Methods("POST")
+		homepage.Index(w, r)
+	}).Methods("GET")
 }
 
 func main() {
