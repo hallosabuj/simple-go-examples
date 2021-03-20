@@ -2,6 +2,7 @@ package main
 
 import (
 	calculator "api/calculator"
+	test "api/test"
 	"fmt"
 	homepage "homepage"
 	"log"
@@ -12,7 +13,7 @@ import (
 
 var router = mux.NewRouter()
 
-func uri_init() {
+func uri_init_calculator() {
 	router.HandleFunc("/calculator/addition", func(w http.ResponseWriter, r *http.Request) {
 		calculator.Addition(w, r)
 	}).Methods("POST")
@@ -30,8 +31,18 @@ func uri_init() {
 	}).Methods("GET")
 }
 
+func uri_init_test() {
+	router.HandleFunc("/test", func(w http.ResponseWriter, r *http.Request) {
+		test.Greeting(w, r)
+	}).Methods("GET")
+	router.HandleFunc("/test/{name}", func(w http.ResponseWriter, r *http.Request) {
+		test.GreetingWithName(w, r)
+	}).Methods("GET")
+}
+
 func main() {
-	uri_init()
+	uri_init_calculator()
+	uri_init_test()
 	fmt.Println("Hello!!!")
 	log.Fatal(http.ListenAndServe(":5000", router))
 }
