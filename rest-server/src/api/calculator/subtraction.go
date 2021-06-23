@@ -3,11 +3,12 @@ package calculator
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 )
 
 func Subtraction(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("Subtraction")
+	log.Println("Subtraction")
 	var numbers Numbers
 	var result Result
 	json.NewDecoder(r.Body).Decode(&numbers)

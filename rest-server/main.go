@@ -3,7 +3,6 @@ package main
 import (
 	calculator "api/calculator"
 	test "api/test"
-	"fmt"
 	homepage "homepage"
 	"log"
 	"net/http"
@@ -43,6 +42,7 @@ func uri_init_test() {
 func main() {
 	uri_init_calculator()
 	uri_init_test()
-	fmt.Println("Hello!!!")
+	log.Println("First log for rest server!!!")
+	log.Println("Rest server satrted at port 5000")
 	log.Fatal(http.ListenAndServe(":5000", router))
 }

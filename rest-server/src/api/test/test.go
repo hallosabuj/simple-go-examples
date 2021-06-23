@@ -2,7 +2,7 @@ package test
 
 import (
 	"encoding/json"
-	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -14,14 +14,14 @@ type Message struct {
 
 func Greeting(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	fmt.Println("Greeting")
+	log.Println("Greeting")
 	response := Message{Msg: "Hello from test..."}
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(response)
 }
 
 func GreetingWithName(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("Greeting with name")
+	log.Println("Greeting with name")
 	//Fetching name from url
 	vars := mux.Vars(r)
 	name := vars["name"]

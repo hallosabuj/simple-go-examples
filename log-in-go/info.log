@@ -1,3 +1,6 @@
-2020/12/21 23:38:10 Logging to a file in Go!
-2020/12/21 23:47:14 Logging to a fi/le in Go!
-2020/12/21 23:47:14 Panic happend
+2021/06/18 11:17:45 Logging to a file in Go!
+2021/06/18 11:17:45 Panic happend
+time="2021-06-18T15:54:45+05:30" level=info msg="A walrus appears" animal=walrus
+time="2021-06-18T15:54:45+05:30" level=info msg="something happened on that request" request_id=request_id user_ip=user_ip
+time="2021-06-18T15:54:45+05:30" level=warning msg="something not great happened" request_id=request_id user_ip=user_ip
+time="2021-06-18T15:54:45+05:30" level=info msg="A walrus appears" animal=walrus number=1 size=10

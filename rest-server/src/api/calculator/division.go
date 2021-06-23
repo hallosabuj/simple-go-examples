@@ -3,11 +3,12 @@ package calculator
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 )
 
 func Division(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("Division")
+	log.Println("Division")
 	var numbers Numbers
 	var result Result
 	json.NewDecoder(r.Body).Decode(&numbers)
