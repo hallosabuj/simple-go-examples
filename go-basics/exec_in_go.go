@@ -136,13 +136,13 @@ func test() {
 
 func test1() {
 	//Capture output
-	cmd := exec.Command("echo", "Hello Wolrd", "|", "grep", "Hello")
-	output, err := cmd.Output()
+	cmd := exec.Command("sh", "-c", "echo \"Hello Wolrd\" | tr e X")
+	output, err := cmd.CombinedOutput()
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
-	fmt.Println(string(output))
+	fmt.Print(string(output))
 }
 
 func main() {
