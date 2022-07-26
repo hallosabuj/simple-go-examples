@@ -4,6 +4,7 @@ import "fmt"
 
 func main() {
 	//Default value for boolean is 0 which is false
+	// var flag bool
 	var flag = false
 	fmt.Printf("%v : %T\n", flag, flag)
 	var i int8 = 34 //int16, int32, int64

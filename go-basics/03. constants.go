@@ -5,12 +5,12 @@ import "fmt"
 // This is enumerated constant
 // iota is scoped to a constant block
 const (
-	s = iota
-	t = iota
-	u = iota
+	s = iota // 0
+	t = iota // 1
+	u = iota // 2
 )
 const (
-	v = iota
+	v = iota // 0
 )
 const (
 	w = iota + 10 // 0 + 10
@@ -19,7 +19,7 @@ const (
 	z             // 3 + 10
 )
 const (
-	_  = iota
+	_  = iota             // Ignoring 0 value
 	KB = 1 << (10 * iota) // 000...00001  <<  00000010000000000
 	MB                    // 000...00001  <<  00000100000000000
 	GB                    // 000...00001  <<  00001000000000000
@@ -29,15 +29,25 @@ const (
 )
 
 func main() {
-	fmt.Println("Here constants are elaorated....")
+	fmt.Println("Here constants are elaborated....")
 	// constant can remain unsed through out the program
 	const a int = 27
-	const b int = 23
-	const c = 24
-	var d int16 = 15
-	// fmt.Printf("%v : %T\n", c+d, c+d) // mismatched types int and int16
-	fmt.Printf("%v : %T\n", c, c)
-	fmt.Printf("%v : %T\n", c+d, c+d) // this will add successfully
+
+	{
+		const c = 24
+		var d int16 = 15
+		fmt.Printf("%v : %T\n", c, c)
+		fmt.Printf("%v : %T\n", d, d)
+		fmt.Printf("%v : %T\n", c+d, c+d) // this will add successfully
+	}
+
+	{
+		const c int = 24
+		var d int16 = 15
+		fmt.Printf("%v : %T\n", c, c)
+		fmt.Printf("%v : %T\n", d, d)
+		// fmt.Printf("%v : %T\n", c+d, c+d) // this will not compile, mismatched types int and int16
+	}
 	//iota
 	fmt.Println(s)
 	fmt.Println(t)
@@ -48,4 +58,7 @@ func main() {
 	fmt.Println("y :", y)
 	fmt.Println("z :", z)
 	fmt.Println("KB :", KB)
+
+	fileSize := 40000000000
+	fmt.Printf("Filesize = %.2fGB\n", float32(fileSize)/GB)
 }
