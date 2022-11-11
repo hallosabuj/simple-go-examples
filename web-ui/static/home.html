@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="asset/style.css" />
+    </head>
+    <script>
+        function add(){
+            div=document.getElementById("div1")
+            console.log("ffff")
+        }
+    </script>
+    <body>
+        {{template "Header"}}
+        <div class="d1" id="div1">
+            <h1>This is home page</h1>
+            <button onclick="add()">Add image input</button>
+        </div>
+        {{template "Footer"}}
+    </body>
+</html>

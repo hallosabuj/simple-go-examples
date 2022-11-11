@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <h1>Contact</h1>
+        <ul>{{.Name}}</ul>
+        <ul>{{.Phone}}</ul>
+        <img src="asset/sabuj.jpg" height="200px" width="auto">
+        <table>
+            <!-- Need to provde this $ for range -->
+            {{range $key,$value:= .Marks}}
+            <tr><td>{{$key}}</td><td>{{$value}}</td></tr>
+            {{end}}
+        </table>
+    </body>
+</html>
